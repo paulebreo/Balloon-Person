@@ -1,5 +1,5 @@
 describe('RopeDude Class', () => {
-  it('it attaches a constructor method to the GuessTheWordGame Class', () => {
+  it('it attaches a constructor method to the RopeDude Class', () => {
     expect(typeof RopeDude.constructor).toBe('function');
   });
 
