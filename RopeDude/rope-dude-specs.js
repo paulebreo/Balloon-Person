@@ -264,7 +264,7 @@ describe('simulateRopeDude', () => {
   
   */
   it('returns the final result (won or lost condition)', () => {
-    expect(typeof simulateRopeDude('hello world')).toBe('string');
+    expect(typeof simulateRopeDude(['a','b','c','d','e','f'],'my')).toBe('string');
   });
 
   // secret word : abracadabra
@@ -278,15 +278,16 @@ describe('simulateRopeDude', () => {
   it('should simulate a loss', () => {
     const guesses = 'e i h t g k'.split(' ')
     const secretWord = 'abracadabra'
-    expect(simulateRopeDude(guesses, secretWord)).toBe(`Game Over, the word was "rubber duck":
 
-    +---+
-    |   |
-    O   |
-   /|\\\  |
-   / \\\  |
-        |
-  =========`);
+  expect(simulateRopeDude(guesses, secretWord)).toBe(`Game Over, the word was "${secretWord}":
+
+  +---+
+  |   |
+  O   |
+ /|\\\  |
+ / \\\  |
+      |
+=========`);
   });
 
 
