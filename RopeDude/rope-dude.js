@@ -107,6 +107,7 @@ class RopeDude {
               .join('')
   }
 }
+
 RopeDude.prototype.getGameStateMessage = function() {
   let message = ''
   if(this.gameState === 'playing')
@@ -115,5 +116,14 @@ RopeDude.prototype.getGameStateMessage = function() {
     return 'Winner Winner Chicken Dinner, you won!'
   if(this.gameState === 'lost')
     message = `Game Over, the word was "${this.secretWord.join('')}":\n`
-  return message + ASCIIART[this.remainingGuesses]
+  
+    return message + ASCIIART[this.remainingGuesses]
+}
+
+function simulateRopeDude(guesses, secretWord) {
+  const game = new RopeDude(secretWord);
+  for(let i in guesses) {
+    game.submitGuess(guesses[i])
+  }
+  return game.getGameStateMessage()
 }
