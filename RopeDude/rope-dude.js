@@ -8,7 +8,7 @@ const ASCIIART = [
       |
       |
 =========`,
-`
+  `
 +---+
 |   |
 O   |
@@ -16,7 +16,7 @@ O   |
     |
     |
 =========`,
-`
+  `
 +---+
 |   |
 O   |
@@ -24,7 +24,7 @@ O   |
     |
     |
 =========`,
-`
+  `
 +---+
 |   |
 O   |
@@ -32,7 +32,7 @@ O   |
     |
     |
 =========`,
-`
+  `
 +---+
 |   |
 O   |
@@ -40,7 +40,7 @@ O   |
     |
     |
 =========`,
-`
+  `
 +---+
 |   |
 O   |
@@ -56,40 +56,47 @@ O   |
  /|\\\  |
  / \\\  |
       |
-=========`,
-
+=========`
 ];
-
 
 class RopeDude {
   constructor(secretWord) {
-    this.remainingGuesses = 6
-    this.secretWord = secretWord.split('').map((item)=>item.toLowerCase())
-    this.lettersGuessed = []
+    this.remainingGuesses = 6;
+    this.secretWord = secretWord.split("").map(item => item.toLowerCase());
+    this.lettersGuessed = [];
     // playing, lost, won
-    this.gameState = 'playing'
+    this.gameState = "playing";
   }
   submitGuess(guess) {
     // debugger
-    let theGuess = guess.toLowerCase()
+    let theGuess = guess.toLowerCase();
+    if (this.gameState === "playing") {
+      // not found in lettersGuessed
+      if (this.lettersGuessed.indexOf(theGuess.toLowerCase()) === -1) {
+        this.lettersGuessed.push(theGuess);
+      }
 
-    // not found
-    if(this.lettersGuessed.indexOf(theGuess.toLowerCase()) === -1) {
-      this.lettersGuessed.push(theGuess)
+      // correct
+      if (this.secretWord.includes(theGuess)) {
+      } else {
+        // incorrect
+        this.remainingGuesses--;
+      }
     }
-    // correct 
-    if(this.secretWord.includes(theGuess)) {
+    // this.computeGameState()
+  }
+  computeGameState() {
+    if(this.remainingGuesses > 0) {
+      let guessesStr = this.lettersGuessed.sort().toString()
+      let secretWordStr = this.secretWord.sort().toString()
+      if(guessesStr === secretWordStr) 
+        this.gameState = 'won'
+    }
+    else if(this.remainingGuesses < 1) {
+      this.gameState = 'lost'
     } else {
-      // incorrect
-      this.remainingGuesses--      
+      this.gameState = 'playing'
     }
-    
-
-
-
-
-
     
   }
 }
-
