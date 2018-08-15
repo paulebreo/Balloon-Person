@@ -83,18 +83,16 @@ class RopeDude {
         this.remainingGuesses--;
       }
     }
-    // this.computeGameState()
+    this.computeGameState()
   }
   computeGameState() {
     if(this.remainingGuesses > 0) {
-      let guessesStr = this.lettersGuessed.sort().toString()
-      let secretWordStr = this.secretWord.sort().toString()
-      if(guessesStr === secretWordStr) 
+      if(this.secretWord.map(L=>this.lettersGuessed.includes(L)).every(L=>L==true)) 
         this.gameState = 'won'
     }
     else if(this.remainingGuesses < 1) {
       this.gameState = 'lost'
-    } else {
+    }  else {
       this.gameState = 'playing'
     }
     
