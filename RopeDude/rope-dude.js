@@ -3,60 +3,60 @@ const ASCIIART = [
   `
   +---+
   |   |
+  O   |
+ /|\\\  |
+ / \\\  |
       |
-      |
-      |
-      |
-=========`,
-  `
-+---+
-|   |
-O   |
-    |
-    |
-    |
-=========`,
-  `
-+---+
-|   |
-O   |
-|   |
-    |
-    |
-=========`,
-  `
-+---+
-|   |
-O   |
-/|   |
-    |
-    |
-=========`,
-  `
-+---+
-|   |
-O   |
-/|\\\  |
-    |
-    |
-=========`,
-  `
-+---+
-|   |
-O   |
-/|\\\  |
-/    |
-    |
-    
 =========`,
   `
   +---+
   |   |
   O   |
  /|\\\  |
- / \\\  |
+ /    |
       |
-=========`
+      
+=========`,
+  `
+  +---+
+  |   |
+  O   |
+ /|\\\  |
+      |
+      |
+=========`,
+  `
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========`,
+  `
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========`,
+  `
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========`,
+  `
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========`,
 ];
 
 class RopeDude {
@@ -106,4 +106,14 @@ class RopeDude {
               .map(secretLetter=>revealedLetter(secretLetter))
               .join('')
   }
+}
+RopeDude.prototype.getGameStateMessage = function() {
+  let message = ''
+  if(this.gameState === 'playing')
+    message = `There is a total of ${this.remainingGuesses} guesses remaining:\n`
+  if(this.gameState === 'won')
+    return 'Winner Winner Chicken Dinner, you won!'
+  if(this.gameState === 'lost')
+    message = `Game Over, the word was "${this.secretWord.join('')}":\n`
+  return message + ASCIIART[this.remainingGuesses]
 }
