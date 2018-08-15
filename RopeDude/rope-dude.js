@@ -62,7 +62,7 @@ O   |
 class RopeDude {
   constructor(secretWord) {
     this.remainingGuesses = 6;
-    this.secretWord = secretWord.split("").map(item => item.toLowerCase());
+    this.secretWord = secretWord
     this.lettersGuessed = [];
     // playing, lost, won
     this.gameState = "playing";
@@ -77,7 +77,7 @@ class RopeDude {
       }
 
       // correct
-      if (this.secretWord.includes(theGuess)) {
+      if (this.secretWord.split('').includes(theGuess)) {
       } else {
         // incorrect
         this.remainingGuesses--;
@@ -87,7 +87,7 @@ class RopeDude {
   }
   computeGameState() {
     if(this.remainingGuesses > 0) {
-      if(this.secretWord.map(L=>this.lettersGuessed.includes(L)).every(L=>L==true)) 
+      if(this.secretWord.split('').map(L=>this.lettersGuessed.includes(L)).every(L=>L==true)) 
         this.gameState = 'won'
     }
     else if(this.remainingGuesses < 1) {
@@ -97,8 +97,13 @@ class RopeDude {
     }
   }
   getSecretWordPuzzle() {
-    const revealedLetter = letter => this.lettersGuessed.includes(letter) ? letter : '#'
+    let self = this
+    const revealedLetter = function(letter) {
+      if(letter === ' ') return ' '
+      return self.lettersGuessed.includes(letter) ? letter : '#'
+    } 
     return this.secretWord
+              .split('')
               .map(letter=>revealedLetter(letter)).join('')
   }
 }
