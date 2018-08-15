@@ -61,4 +61,35 @@ O   |
 ];
 
 
-console.log(ASCIIART[6])
+class RopeDude {
+  constructor(secretWord) {
+    this.remainingGuesses = 6
+    this.secretWord = secretWord.split('').map((item)=>item.toLowerCase())
+    this.lettersGuessed = []
+    // playing, lost, won
+    this.gameState = 'playing'
+  }
+  submitGuess(guess) {
+    // debugger
+    let theGuess = guess.toLowerCase()
+
+    // not found
+    if(this.lettersGuessed.indexOf(theGuess.toLowerCase()) === -1) {
+      this.lettersGuessed.push(theGuess)
+    }
+    // correct 
+    if(this.secretWord.includes(theGuess)) {
+    } else {
+      // incorrect
+      this.remainingGuesses--      
+    }
+    
+
+
+
+
+
+    
+  }
+}
+
