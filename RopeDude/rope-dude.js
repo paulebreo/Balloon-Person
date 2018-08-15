@@ -95,6 +95,10 @@ class RopeDude {
     }  else {
       this.gameState = 'playing'
     }
-    
+  }
+  getSecretWordPuzzle() {
+    const revealedLetter = letter => this.lettersGuessed.includes(letter) ? letter : '#'
+    return this.secretWord
+              .map(letter=>revealedLetter(letter)).join('')
   }
 }
