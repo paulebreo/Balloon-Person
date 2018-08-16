@@ -56,13 +56,13 @@ const ASCIIART = [
       |
       |
       |
-=========`,
+=========`
 ];
 
 class RopeDude {
   constructor(secretWord) {
     this.remainingGuesses = 6;
-    this.secretWord = secretWord.split('')
+    this.secretWord = secretWord.split("");
     this.lettersGuessed = [];
     // playing, lost, won
     this.gameState = "playing";
@@ -83,17 +83,20 @@ class RopeDude {
         this.remainingGuesses--;
       }
     }
-    this.computeGameState()
+    this.computeGameState();
   }
   computeGameState() {
-    if(this.remainingGuesses > 0) {
-      if(this.secretWord.map(L=>this.lettersGuessed.includes(L)).every(L=>L==true)) 
-        this.gameState = 'won'
-    }
-    else if(this.remainingGuesses < 1) {
-      this.gameState = 'lost'
-    }  else {
-      this.gameState = 'playing'
+    if (this.remainingGuesses > 0) {
+      if (
+        this.secretWord
+          .map(L => this.lettersGuessed.includes(L))
+          .every(L => L == true)
+      )
+        this.gameState = "won";
+    } else if (this.remainingGuesses < 1) {
+      this.gameState = "lost";
+    } else {
+      this.gameState = "playing";
     }
   }
   getSecretWordPuzzle() {
@@ -102,7 +105,7 @@ class RopeDude {
     // const revealedLetter = function(secretLetter) {
     //   if(secretLetter === ' ') return ' '
     //   return self.lettersGuessed.includes(secretLetter) ? secretLetter : '#'
-    // } 
+    // }
     // return this.secretWord
     //           .map(function(secretLetter){
     //             if(secretLetter === ' ') return ' '
@@ -110,74 +113,86 @@ class RopeDude {
     //           })
     //           .join('')
 
-    // method 2 
-    // return this.secretWord.map(el => this.lettersGuessed.includes(el) || el == ' ' ? el : '#').join('') 
+    // method 2
+    // return this.secretWord.map(el => this.lettersGuessed.includes(el) || el == ' ' ? el : '#').join('')
 
-    return this.secretWord
-                .reduce((str, secretLetter) => {
-                  if(secretLetter === ' ') return str + ' '
-                  return str + (this.lettersGuessed.includes(secretLetter) ? secretLetter : '#')
-                }, '');
+    return this.secretWord.reduce((str, secretLetter) => {
+      if (secretLetter === " ") return str + " ";
+      return (
+        str + (this.lettersGuessed.includes(secretLetter) ? secretLetter : "#")
+      );
+    }, "");
   }
 }
 
 RopeDude.prototype.getGameStateMessage = function() {
-  let message = ''
-  if(this.gameState === 'playing')
-    message = `There is a total of ${this.remainingGuesses} guesses remaining:\n`
-  if(this.gameState === 'won')
-    return 'Winner Winner Chicken Dinner, you won!'
-  if(this.gameState === 'lost')
-    message = `Game Over, the word was "${this.secretWord.join('')}":\n`
-  
-    return message + ASCIIART[this.remainingGuesses]
-}
+  let message = "";
+  if (this.gameState === "playing")
+    message = `There is a total of ${
+      this.remainingGuesses
+    } guesses remaining:\n`;
+  if (this.gameState === "won") return "Winner Winner Chicken Dinner, you won!";
+  if (this.gameState === "lost")
+    message = `Game Over, the word was "${this.secretWord.join("")}":\n`;
+
+  return message + ASCIIART[this.remainingGuesses];
+};
 
 function simulateRopeDude(guesses, secretWord) {
   const game = new RopeDude(secretWord);
-  for(let i in guesses) {
-    game.submitGuess(guesses[i])
+  for (let i in guesses) {
+    game.submitGuess(guesses[i]);
   }
-  return game.getGameStateMessage()
+  return game.getGameStateMessage();
 }
-
 
 class BalloonPerson extends RopeDude {
   constructor() {
-    super()
+    super();
   }
 }
 
-// Start game
-let splashScreen = document.getElementById('splashScreen')
-let startButton = document.getElementsByClassName('startBtn')[0]
-let restartScreen = document.getElementById('restartScreen')
-let restartButton = document.getElementsByClassName('restartBtn')[0]
-restartScreen.style.display = 'none'
+class Game {
+  constructor() {
+  }
+  start() {
+    console.log('starting game')
+    this.setupScreen()
+  }
+  setupScreen() {
+    let splashScreen = document.getElementById("splashScreen");
+    let startButton = document.getElementsByClassName("startBtn")[0];
+    let restartScreen = document.getElementById("restartScreen");
+    let restartButton = document.getElementsByClassName("restartBtn")[0];
+    restartScreen.style.display = "none";
 
-function closeSplashScreen() {
-  console.log('pressed')
-  splashScreen.style.display = 'none'
+    function closeSplashScreen() {
+      console.log("pressed");
+      splashScreen.style.display = "none";
+    }
+    function closeRestartScreen() {
+      console.log("pressed");
+      restartScreen.style.display = "none";
+    }
+
+    function closeModal() {
+      // console.log(modal)
+      splashScreen.style.display = "none";
+    }
+
+    function clickOutside(e) {
+      if (e.target === screen) {
+        screen.style.display = "none";
+      }
+    }
+
+    startButton.addEventListener("click", closeSplashScreen);
+    restartButton.addEventListener("click", closeRestartScreen);
+
+    // close windows when click outside modal
+    // window.addEventListener('click', closeSplashScreen)
+  }
 }
-function closeRestartScreen() {
-  console.log('pressed')
-  restartScreen.style.display = 'none'
-}
 
-function closeModal() {
-  // console.log(modal)
-  splashScreen.style.display = 'none'
-}
-
-function clickOutside(e) {
-  if(e.target === screen) {
-     screen.style.display = 'none'
-   }
-}
-
-startButton.addEventListener('click', closeSplashScreen)
-restartButton.addEventListener('click', closeRestartScreen)
-
-// close windows when click outside modal
-// window.addEventListener('click', closeSplashScreen)
-
+let game = new Game()
+game.start()
