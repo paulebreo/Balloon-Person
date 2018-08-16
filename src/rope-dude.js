@@ -150,13 +150,18 @@ class BalloonPerson extends RopeDude {
 
 // Start game
 let splashScreen = document.getElementById('splashScreen')
-
-// get button element
 let startButton = document.getElementsByClassName('startBtn')[0]
+let restartScreen = document.getElementById('restartScreen')
+let restartButton = document.getElementsByClassName('restartBtn')[0]
+restartScreen.style.display = 'none'
 
 function closeSplashScreen() {
   console.log('pressed')
   splashScreen.style.display = 'none'
+}
+function closeRestartScreen() {
+  console.log('pressed')
+  restartScreen.style.display = 'none'
 }
 
 function closeModal() {
@@ -171,8 +176,8 @@ function clickOutside(e) {
 }
 
 startButton.addEventListener('click', closeSplashScreen)
+restartButton.addEventListener('click', closeRestartScreen)
 
 // close windows when click outside modal
 // window.addEventListener('click', closeSplashScreen)
-
 

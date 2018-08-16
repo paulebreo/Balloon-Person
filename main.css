@@ -176,7 +176,6 @@ waterArea {
       animation-duration: 12s; }
 
 .splashScreen {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -217,6 +216,7 @@ waterArea {
       color: black; }
 
 .restartScreen {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;

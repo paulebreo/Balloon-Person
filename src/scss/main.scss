@@ -232,7 +232,7 @@ waterArea {
 }
 
 .splashScreen {
-    display: none;
+    // display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -289,7 +289,7 @@ waterArea {
 }
 
 .restartScreen {
-    // display: none;
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
