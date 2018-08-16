@@ -317,6 +317,28 @@ describe('Balloon Person Class', () => {
     it('should call classList.add()', () => {
       expect(false).toBe(true);
     });
+    it('should call el.querySelectorAll(selector);', () => {
+      expect(false).toBe(true);
+    });
+    it('should toggle class', () => {
+      // something like this
+      /*
+        if (el.classList) {
+          el.classList.toggle(className);
+        } else {
+          var classes = el.className.split(' ');
+          var existingIndex = classes.indexOf(className);
+
+          if (existingIndex >= 0)
+            classes.splice(existingIndex, 1);
+          else
+            classes.push(className);
+
+          el.className = classes.join(' ');
+        }
+      */
+      expect(false).toBe(true);
+    });
 
   });
 
@@ -326,6 +348,13 @@ describe('Balloon Person Class', () => {
       expect(game.hasOwnProperty('drawPuzzle')).toBe(false);
     });
     it('should call classList.add()', () => {
+      expect(false).toBe(true);
+    });
+    it('should call parent.appendChild(el);', () => {
+      expect(false).toBe(true);
+    });
+    it('should call el.parentNode.removeChild(el)', () => {
+      // http://youmightnotneedjquery.com/
       expect(false).toBe(true);
     });
 
