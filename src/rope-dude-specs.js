@@ -298,28 +298,45 @@ describe('Balloon Person Class', () => {
     expect(typeof BalloonPerson.constructor).toBe('function');
   });
 
-  describe('submitGuess method', () => {
+  describe('showSplashScreen method', () => {
     it('is a prototype method', () => {
-      const game = new RopeDude('xertz');
-      expect(game.hasOwnProperty('submitGuess')).toBe(false);
+      const game = new BalloonPerson('xertz');
+      expect(game.hasOwnProperty('showSplashScreen')).toBe(false);
     });
 
   });
 
-  describe('getSecretWordPuzzle method', () => {
+  describe('drawGuesses method', () => {
     it('is a prototype method', () => {
-      const game = new RopeDude('xertz');
-      expect(game.hasOwnProperty('getSecretWordPuzzle')).toBe(false);
+      const game = new BalloonPerson('xertz');
+      expect(game.hasOwnProperty('drawGuesses')).toBe(false);
+    });
+
+  });
+
+  describe('drawPuzzle method', () => {
+    it('is a prototype method', () => {
+      const game = new BalloonPerson('xertz');
+      expect(game.hasOwnProperty('drawPuzzle')).toBe(false);
+    });
+
+  });
+
+  describe('showRestartScreen method', () => {
+    it('is a prototype method', () => {
+      const game = new BalloonPerson('xertz');
+      expect(game.hasOwnProperty('showRestartScreen')).toBe(false);
     });
 
   });
 
   describe('getGameStateMessage method', () => {
     it('is a prototype method', () => {
-      const game = new RopeDude('xertz');
+      const game = new BalloonPerson('xertz');
       expect(game.hasOwnProperty('getGameStateMessage')).toBe(false);
     });
 
   });
+
 });
 
