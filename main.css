@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box; }
 
+body {
+  font-family: Arial, Helvetica, sans-serif; }
+
 .container {
   display: grid;
   grid-template-areas: "puzzle puzzle puzzle" "stickman stickman guess" "water water water";
@@ -42,8 +45,7 @@ stickmanAreaContainer {
     width: 150px;
     height: 250px;
     position: absolute;
-    background-color: grey;
-    positive: relative; }
+    background-color: grey; }
     stickmanAreaContainer .playerArea .body {
       width: 60%;
       transform: translate(30%, 0);
@@ -172,6 +174,46 @@ waterArea {
     waterArea .shark.sharkMove2 {
       animation-name: rightToLeft;
       animation-duration: 12s; }
+
+.splashScreen {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .splashScreen .splashContent .startBtn {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 0.6em;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; }
+    .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .startBtn:focus {
+      color: #fff;
+      outline: 0; }
+  .splashScreen .splashContent .startBtn {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
+    .splashScreen .splashContent .startBtn:hover {
+      box-shadow: 0 0 40px 40px white inset;
+      color: black; }
 
 @keyframes leftToRight {
   from {
