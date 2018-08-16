@@ -97,14 +97,27 @@ class RopeDude {
     }
   }
   getSecretWordPuzzle() {
-    let self = this
-    const revealedLetter = function(secretLetter) {
-      if(secretLetter === ' ') return ' '
-      return self.lettersGuessed.includes(secretLetter) ? secretLetter : '#'
-    } 
+    // method 1
+    // let self = this
+    // const revealedLetter = function(secretLetter) {
+    //   if(secretLetter === ' ') return ' '
+    //   return self.lettersGuessed.includes(secretLetter) ? secretLetter : '#'
+    // } 
+    // return this.secretWord
+    //           .map(function(secretLetter){
+    //             if(secretLetter === ' ') return ' '
+    //             return self.lettersGuessed.includes(secretLetter) ? secretLetter : '#'
+    //           })
+    //           .join('')
+
+    // method 2 
+    // return this.secretWord.map(el => this.lettersGuessed.includes(el) || el == ' ' ? el : '#').join('') 
+
     return this.secretWord
-              .map(secretLetter=>revealedLetter(secretLetter))
-              .join('')
+                .reduce((str, secretLetter) => {
+                  if(secretLetter === ' ') return str + ' '
+                  return str + (this.lettersGuessed.includes(secretLetter) ? secretLetter : '#')
+                }, '');
   }
 }
 
