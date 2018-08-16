@@ -147,3 +147,36 @@ class BalloonPerson extends RopeDude {
     super()
   }
 }
+
+// Start game
+// get modal element
+// get modal element
+let splashScreen = document.getElementById('splashScreen')
+
+
+// get button element
+let startButton = document.getElementsByClassName('startBtn')[0]
+console.log(startButton)
+
+function closeSplashScreen() {
+  // console.log(modal)
+  splashScreen.style.display = 'block'
+}
+
+function closeModal() {
+  // console.log(modal)
+  splashScreen.style.display = 'none'
+}
+
+function clickOutside(e) {
+  if(e.target === modal) {
+     modal.style.display = 'none'
+   }
+}
+
+startButton.addEventListener('click', closeSplashScreen)
+
+// close windows when click outside modal
+window.addEventListener('click', closeSplashScreen)
+
+
