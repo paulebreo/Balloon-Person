@@ -176,6 +176,7 @@ waterArea {
       animation-duration: 12s; }
 
 .splashScreen {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -187,7 +188,7 @@ waterArea {
   display: flex;
   align-items: center;
   justify-content: center; }
-  .splashScreen .splashContent .startBtn {
+  .splashScreen .splashContent .startBtn, .splashScreen .splashContent .restartScreen .restartContent .restartBtn, .restartScreen .restartContent .splashScreen .splashContent .restartBtn {
     box-sizing: border-box;
     background-color: transparent;
     border: 2px solid white;
@@ -206,12 +207,52 @@ waterArea {
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700; }
-    .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .startBtn:focus {
+    .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .restartScreen .restartContent .restartBtn:hover, .restartScreen .restartContent .splashScreen .splashContent .restartBtn:hover, .splashScreen .splashContent .startBtn:focus, .splashScreen .splashContent .restartScreen .restartContent .restartBtn:focus, .restartScreen .restartContent .splashScreen .splashContent .restartBtn:focus {
       color: #fff;
       outline: 0; }
   .splashScreen .splashContent .startBtn {
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
     .splashScreen .splashContent .startBtn:hover {
+      box-shadow: 0 0 40px 40px white inset;
+      color: black; }
+
+.restartScreen {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f32222;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .restartScreen .restartContent .splashScreen .splashContent .startBtn, .splashScreen .splashContent .restartScreen .restartContent .startBtn, .restartScreen .restartContent .restartBtn {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 0.6em;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; }
+    .restartScreen .restartContent .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .restartScreen .restartContent .startBtn:hover, .restartScreen .restartContent .restartBtn:hover, .restartScreen .restartContent .splashScreen .splashContent .startBtn:focus, .splashScreen .splashContent .restartScreen .restartContent .startBtn:focus, .restartScreen .restartContent .restartBtn:focus {
+      color: #fff;
+      outline: 0; }
+  .restartScreen .restartContent .restartBtn {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
+    .restartScreen .restartContent .restartBtn:hover {
       box-shadow: 0 0 40px 40px white inset;
       color: black; }
 
