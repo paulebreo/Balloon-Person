@@ -140,3 +140,10 @@ function simulateRopeDude(guesses, secretWord) {
   }
   return game.getGameStateMessage()
 }
+
+
+class BalloonPerson extends RopeDude {
+  constructor() {
+    super()
+  }
+}
