@@ -1,0 +1,25 @@
+{
+  "name": "bcp-workshop",
+  "version": "1.0.0",
+  "description": "BCP workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "testem",
+    "grade": "node_modules/.bin/testem ci",
+    "sass": "node-sass -w src/scss -o . --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "node-sass": "^4.9.2",
+    "testem": "^1.6.0"
+  }
+}
