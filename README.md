@@ -38,17 +38,18 @@ Resources
 
 http://youmightnotneedjquery.com/
 
-find children
-```
-el.querySelectorAll(selector);
 
-```
 
 append child
 ```
 parent.appendChild(el);
 ```
 
+find children
+```
+el.querySelectorAll(selector);
+
+```
 
 find eleements
 ```
