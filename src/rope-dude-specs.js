@@ -303,6 +303,9 @@ describe('Balloon Person Class', () => {
       const game = new BalloonPerson('xertz');
       expect(game.hasOwnProperty('showSplashScreen')).toBe(false);
     });
+    it('should call classList.add()', () => {
+      expect(false).toBe(true);
+    });
 
   });
 
@@ -310,6 +313,9 @@ describe('Balloon Person Class', () => {
     it('is a prototype method', () => {
       const game = new BalloonPerson('xertz');
       expect(game.hasOwnProperty('drawGuesses')).toBe(false);
+    });
+    it('should call classList.add()', () => {
+      expect(false).toBe(true);
     });
 
   });
@@ -319,6 +325,9 @@ describe('Balloon Person Class', () => {
       const game = new BalloonPerson('xertz');
       expect(game.hasOwnProperty('drawPuzzle')).toBe(false);
     });
+    it('should call classList.add()', () => {
+      expect(false).toBe(true);
+    });
 
   });
 
@@ -327,6 +336,9 @@ describe('Balloon Person Class', () => {
       const game = new BalloonPerson('xertz');
       expect(game.hasOwnProperty('showRestartScreen')).toBe(false);
     });
+    it('should call classList.add()', () => {
+      expect(false).toBe(true);
+    });
 
   });
 
@@ -334,6 +346,9 @@ describe('Balloon Person Class', () => {
     it('is a prototype method', () => {
       const game = new BalloonPerson('xertz');
       expect(game.hasOwnProperty('getGameStateMessage')).toBe(false);
+    });
+    it('should call classList.add()', () => {
+      expect(false).toBe(true);
     });
 
   });
