@@ -59,6 +59,10 @@ const ASCIIART = [
 =========`
 ];
 
+const PUZZLE_WORDS = [
+  'hello'
+]
+
 class RopeDude {
   constructor(secretWord) {
     this.remainingGuesses = 6;
@@ -147,17 +151,29 @@ function simulateRopeDude(guesses, secretWord) {
 }
 
 class BalloonPerson extends RopeDude {
-  constructor() {
-    super();
+  constructor(secretWord) {
+    super(secretWord);
   }
 }
 
 class Game {
   constructor() {
+    this.balloonPerson
   }
   start() {
     console.log('starting game')
+    this.createNewPerson()
     this.setupScreen()
+    this.setupGuessEvents()
+  }
+  createNewPerson() {
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+    }
+    let randomWord = PUZZLE_WORDS[getRandomIntInclusive(0,PUZZLE_WORDS.length-1)]
+    this.balloonPerson = new BalloonPerson(randomWord)
   }
   setupScreen() {
     let splashScreen = document.getElementById("splashScreen");
@@ -191,6 +207,21 @@ class Game {
 
     // close windows when click outside modal
     // window.addEventListener('click', closeSplashScreen)
+  }
+  addGuess(guess) {
+    this.balloonPerson.submitGuess(guess)
+    console.log('letters guess',this.balloonPerson.lettersGuessed)
+  }
+  setupGuessEvents() {
+    let self = this
+    function addToLettersGuess(e) {
+      console.log('keycode',e.target.dataset.letter)
+      self.addGuess(e.target.dataset.letter.toLowerCase())
+    } 
+    const guessLetters = document.querySelectorAll('.guessArea')
+    guessLetters.forEach((el)=>{
+      el.addEventListener('click', addToLettersGuess)
+    });
   }
 }
 
