@@ -316,5 +316,27 @@ class Game {
   }
 }
 
+const animateShark = true
+
+let leftToRight = true
+const sharkElem = document.getElementsByClassName('shark')[0]
+
+if(animateShark)
+  sharkElem.classList.add('sharkMove1')
+sharkElem.addEventListener('animationend', alternateMove)
+
+function alternateMove(e) {
+  // console.log('target',e.target)
+  if( e.target.classList.contains('sharkMove1') ) {
+    e.target.classList.remove('sharkMove1')
+    e.target.classList.add('sharkMove2')    
+  } else if( e.target.classList.contains('sharkMove2') ) {
+    e.target.classList.remove('sharkMove2')
+    e.target.classList.add('sharkMove1')    
+  } else {
+    e.target.classList.add('sharkMove1')   
+  }
+}
+
 let game = new Game()
 game.start()
