@@ -208,6 +208,11 @@ puzzleAreaContainer {
       margin: 0 0.5rem;
       background-color: gray;
       border-bottom: 3px solid black;
+
+    }
+    .hidden {
+        background-color:red;
+        // opacity: 0;
     }
   }
 }

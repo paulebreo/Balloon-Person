@@ -167,6 +167,7 @@ class Game {
     this.createNewPerson()
     this.setupScreen()
     this.setupGuessEvents()
+    this.drawPuzzleBoard()
   }
   createNewPerson() {
     function getRandomIntInclusive(min, max) {
@@ -223,6 +224,19 @@ class Game {
       }
     });
 
+  }
+  drawPuzzleBoard(secretWord) {
+    let puzzleArea = document.getElementsByClassName("puzzleArea")[0];
+
+    this.balloonPerson.secretWord.forEach((letter)=>{
+      let L = letter.toUpperCase()
+      let newDiv = document.createElement("div"); 
+      newDiv.className = 'puzzleLetter'
+      newDiv.classList.add('hidden')
+      newDiv.dataset.letter = L
+      newDiv.innerText = L
+      puzzleArea.appendChild(newDiv);
+    })
   }
   setupGuessEvents() {
     let self = this
