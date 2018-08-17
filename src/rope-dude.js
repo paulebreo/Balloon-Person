@@ -216,8 +216,11 @@ class Game {
     this.drawGuessBoard()
   }
   drawGuessBoard() {
+    let self = this
     Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
-      console.log(i)
+      if(self.balloonPerson.lettersGuessed.includes(el.dataset.letter.toLowerCase()))
+        el.classList.add('hideGuess')
+      // console.log(el.dataset.letter)
     });
 
   }
