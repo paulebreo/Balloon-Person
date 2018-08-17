@@ -240,13 +240,13 @@ class Game {
   }
   setupGuessEvents() {
     let self = this
-    function addToLettersGuess(e) {
+    function updateGame(e) {
       console.log('keycode',e.target.dataset.letter)
       self.addGuess(e.target.dataset.letter.toLowerCase())
     } 
     this.guessBoardLetters = document.querySelectorAll('.letter')
     Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
-      el.addEventListener('click', addToLettersGuess)
+      el.addEventListener('click', updateGame)
     });
   }
 }
