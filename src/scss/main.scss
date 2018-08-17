@@ -41,13 +41,16 @@ guessAreaContainer {
     .letter {
       // display: flex;
       // margin: 0px auto;
+      cursor: pointer;
       padding: 3px 3px;
       text-align: center;
       font-size: 1.5rem;
       background: grey;
-        .hideGuess {
-            background-color: red;
-        }
+    
+    }
+    .hideGuess {
+        background-color: red; 
+        cursor: not-allowed;
     }
   }
 }

@@ -29,12 +29,14 @@ guessAreaContainer {
     grid-gap: 3px;
     grid-template-columns: repeat(3, 1fr); }
     guessAreaContainer .guessArea .letter {
+      cursor: pointer;
       padding: 3px 3px;
       text-align: center;
       font-size: 1.5rem;
       background: grey; }
-      guessAreaContainer .guessArea .letter .hideGuess {
-        background-color: red; }
+    guessAreaContainer .guessArea .hideGuess {
+      background-color: red;
+      cursor: not-allowed; }
 
 stickmanAreaContainer {
   grid-area: stickman;
