@@ -45,7 +45,9 @@ guessAreaContainer {
       text-align: center;
       font-size: 1.5rem;
       background: grey;
- 
+        .hide {
+            background-color: red;
+        }
     }
   }
 }

@@ -33,6 +33,8 @@ guessAreaContainer {
       text-align: center;
       font-size: 1.5rem;
       background: grey; }
+      guessAreaContainer .guessArea .letter .hide {
+        background-color: red; }
 
 stickmanAreaContainer {
   grid-area: stickman;

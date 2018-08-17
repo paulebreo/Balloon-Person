@@ -159,6 +159,8 @@ class BalloonPerson extends RopeDude {
 class Game {
   constructor() {
     this.balloonPerson
+    this.guessBoardLetters = []
+    this.puzzleBoardLetters = []
   }
   start() {
     console.log('starting game')
@@ -211,6 +213,13 @@ class Game {
   addGuess(guess) {
     this.balloonPerson.submitGuess(guess)
     console.log('letters guess',this.balloonPerson.lettersGuessed)
+    this.drawGuessBoard()
+  }
+  drawGuessBoard() {
+    Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
+      console.log(i)
+    });
+
   }
   setupGuessEvents() {
     let self = this
@@ -218,8 +227,8 @@ class Game {
       console.log('keycode',e.target.dataset.letter)
       self.addGuess(e.target.dataset.letter.toLowerCase())
     } 
-    const guessLetters = document.querySelectorAll('.guessArea')
-    guessLetters.forEach((el)=>{
+    this.guessBoardLetters = document.querySelectorAll('.letter')
+    Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
       el.addEventListener('click', addToLettersGuess)
     });
   }
