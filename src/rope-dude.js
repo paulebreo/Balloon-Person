@@ -183,6 +183,7 @@ class Game {
     let startButton = document.getElementsByClassName("startBtn")[0];
     let restartScreen = document.getElementById("restartScreen");
     let restartButton = document.getElementsByClassName("restartBtn")[0];
+    let playerArea = document.getElementsByClassName("playerArea")[0];
     restartScreen.style.display = "none";
 
     function closeSplashScreen() {
@@ -204,10 +205,15 @@ class Game {
         screen.style.display = "none";
       }
     }
+    
+    function showRestartScreen(e) {
+      console.log('animation ended')
+      restartScreen.style.display = "block"
+    }
 
     startButton.addEventListener("click", closeSplashScreen);
     restartButton.addEventListener("click", closeRestartScreen);
-
+    playerArea.addEventListener('animationend', showRestartScreen)
     // close windows when click outside modal
     // window.addEventListener('click', closeSplashScreen)
   }
