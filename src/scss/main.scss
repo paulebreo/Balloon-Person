@@ -183,9 +183,13 @@ stickmanAreaContainer {
         }
       }
     }
+
+  }
+  .falling {
+    animation-name: falling;
+    animation-duration: 2s;
   }
  
-    
 }
 
 puzzleAreaContainer {
@@ -371,4 +375,25 @@ waterArea {
     to {
       left: 0px;
     }
+}
+
+
+
+@keyframes falling {
+  from {
+      top: 0px;
+      transition-timing-function: cubic-bezier(0.7, 0.22, 0.725, 0.61);
+  }
+
+  65% {
+      top: 480.5px;
+      transition-timing-function: linear;
+  }
+  80% {
+      top: 600px;
+      transition-timing-function: linear;
+  }
+  to {
+      top: 800px;
+  }
 }

@@ -266,12 +266,14 @@ class Game {
   }
   updatePersonArea(state) {
     let balloonElements = document.getElementById('balloons').children
+    let playerArea = document.getElementsByClassName('playerArea')[0]
     if(state === 'lost') {
       // remove last balloon
       let el = balloonElements[balloonElements.length-1]
       el.parentNode.removeChild(el)
       // animate falling
-      
+      playerArea.classList.add('falling')
+
     }
     console.log('remaining guesses', this.balloonPerson.remainingGuesses)
     
