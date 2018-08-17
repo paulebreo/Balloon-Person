@@ -172,11 +172,11 @@ waterArea {
   position: relative; }
   waterArea .shark {
     position: absolute;
-    top: -20px;
-    height: 60px;
-    width: 120px;
-    background-color: silver;
-    border-radius: 50%; }
+    top: -120px;
+    z-index: 3; }
+    waterArea .shark img {
+      background-color: pink;
+      height: 15vh; }
     waterArea .shark.sharkMove1 {
       animation-name: leftToRight;
       animation-duration: 12s; }
@@ -267,15 +267,15 @@ waterArea {
 
 @keyframes leftToRight {
   from {
-    left: 0px; }
+    left: 10%; }
   to {
-    left: 50%; } }
+    left: 30%; } }
 
 @keyframes rightToLeft {
   from {
-    left: 50%; }
+    left: 30%; }
   to {
-    left: 0px; } }
+    left: 10%; } }
 
 @keyframes falling {
   from {
