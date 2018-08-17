@@ -173,9 +173,8 @@ waterArea {
   waterArea .shark {
     position: absolute;
     top: -120px;
-    z-index: 3; }
+    background-color: rgba(0, 0, 0, 0); }
     waterArea .shark img {
-      background-color: pink;
       height: 15vh; }
     waterArea .shark.sharkMove1 {
       animation-name: leftToRight;

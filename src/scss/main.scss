@@ -229,15 +229,14 @@ waterArea {
   .shark{
     position: absolute;
     top: -120px;
-
+    
     img {
-      background-color: pink;
+     
       height: 15vh;
-      // opacity: 0.5;
     }
-    // background-color: silver;
-    // border-radius: 50%;
-    z-index: 3;
+    background-color: rgba(0,0,0,0);
+    // background-color: coral;
+    
     &.sharkMove1 {
        animation-name: leftToRight;
       animation-duration: 12s;
