@@ -259,10 +259,24 @@ class Game {
     this.puzzleLetters = document.querySelectorAll('.puzzleLetter')
 
     Array.prototype.forEach.call(this.puzzleLetters, function(el, i){
-      console.log('puzzle text',el.innerText)
+      // console.log('puzzle text',el.innerText)
       if(el.innerText.toLowerCase() === guess.toLowerCase())
         el.classList.remove('hidden')
     });
+  }
+  updatePersonArea(state) {
+    if(state === 'lost') return
+    console.log('remaining guesses', this.balloonPerson.remainingGuesses)
+    let balloonElements = document.getElementById('balloons').children
+    
+    while(balloonElements.length > this.balloonPerson.remainingGuesses) {
+        Array.prototype.forEach.call(balloonElements, function(el, i){
+          // console.log('balloon',el.dataset.balloon)
+          el.parentNode.removeChild(el)
+        });
+    }
+
+
   }
   setupGuessEvents() {
     let self = this
@@ -278,6 +292,7 @@ class Game {
       self.checkGameState(state)
       
       // update person area
+      self.updatePersonArea(state)
 
       console.log('keycode',e.target.dataset.letter)
       
