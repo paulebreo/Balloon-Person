@@ -215,6 +215,7 @@ class Game {
     this.balloonPerson.submitGuess(guess)
     console.log('letters guess',this.balloonPerson.lettersGuessed)
     this.drawGuessBoard()
+    return this.balloonPerson.gameState
   }
   drawGuessBoard() {
     let self = this
@@ -238,23 +239,35 @@ class Game {
       puzzleArea.appendChild(newDiv);
     })
   }
+  checkGameState(state) {
+    console.log('state:', state)
+    if(state === 'won') {
+      
+      // animate falling balloon
+      console.log('you won')
 
+      // show restart screen
+
+    } else if(state === 'lost') {
+      console.log('you lost')
+    } else {}
+  }
   setupGuessEvents() {
     let self = this
     function updateGame(e) {
 
-      // check game state
-
-      // add guess
-
-      // update guess area
+      // add guess & update guess area
+      let state = self.addGuess(e.target.dataset.letter.toLowerCase())
 
       // update puzzle area
 
+      // check game state
+      self.checkGameState(state)
+      
       // update person area
 
       console.log('keycode',e.target.dataset.letter)
-      self.addGuess(e.target.dataset.letter.toLowerCase())
+      
     } 
     this.guessBoardLetters = document.querySelectorAll('.letter')
     Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
