@@ -208,7 +208,7 @@ class Game {
     
     function showRestartScreen(e) {
       console.log('animation ended')
-      restartScreen.style.display = "block"
+      restartScreen.style.display = "flex"
     }
 
     startButton.addEventListener("click", closeSplashScreen);
