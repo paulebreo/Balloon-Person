@@ -172,16 +172,17 @@ waterArea {
   position: relative; }
   waterArea .shark {
     position: absolute;
-    top: -120px;
+    top: -10vh;
     background-color: rgba(0, 0, 0, 0); }
     waterArea .shark img {
-      height: 15vh; }
+      transform: scaleX(-1);
+      width: 15vw; }
     waterArea .shark.sharkMove1 {
       animation-name: leftToRight;
-      animation-duration: 12s; }
+      animation-duration: 4s; }
     waterArea .shark.sharkMove2 {
       animation-name: rightToLeft;
-      animation-duration: 12s; }
+      animation-duration: 4s; }
 
 .splashScreen {
   position: fixed;
@@ -272,8 +273,10 @@ waterArea {
 
 @keyframes rightToLeft {
   from {
+    transform: scaleX(-1);
     left: 30%; }
   to {
+    transform: scaleX(-1);
     left: 10%; } }
 
 @keyframes falling {

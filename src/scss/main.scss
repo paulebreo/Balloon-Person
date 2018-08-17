@@ -228,22 +228,22 @@ waterArea {
   position: relative;
   .shark{
     position: absolute;
-    top: -120px;
-    
-    img {
-     
-      height: 15vh;
-    }
+    top: -10vh;
+    // transform: rotate(-18deg);
     background-color: rgba(0,0,0,0);
     // background-color: coral;
-    
+    img {
+      transform: scaleX(-1);
+      width: 15vw;
+    }
+
     &.sharkMove1 {
        animation-name: leftToRight;
-      animation-duration: 12s;
+      animation-duration: 4s;
     }
     &.sharkMove2 {
       animation-name: rightToLeft;
-      animation-duration: 12s;
+      animation-duration: 4s;
     }
   }
 }
@@ -373,9 +373,11 @@ waterArea {
 
 @keyframes rightToLeft {
     from {
+      transform: scaleX(-1);
       left: 30%;
     }
     to {
+      transform: scaleX(-1);
       left: 10%;
     }
 }
