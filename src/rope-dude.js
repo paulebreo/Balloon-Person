@@ -265,15 +265,19 @@ class Game {
     });
   }
   updatePersonArea(state) {
-    if(state === 'lost') return
-    console.log('remaining guesses', this.balloonPerson.remainingGuesses)
     let balloonElements = document.getElementById('balloons').children
+    if(state === 'lost') {
+      // remove last balloon
+      let el = balloonElements[balloonElements.length-1]
+      el.parentNode.removeChild(el)
+      // animate falling
+      
+    }
+    console.log('remaining guesses', this.balloonPerson.remainingGuesses)
     
     while(balloonElements.length > this.balloonPerson.remainingGuesses) {
-        Array.prototype.forEach.call(balloonElements, function(el, i){
-          // console.log('balloon',el.dataset.balloon)
-          el.parentNode.removeChild(el)
-        });
+      let el = balloonElements[balloonElements.length-1]
+      el.parentNode.removeChild(el)
     }
 
 
