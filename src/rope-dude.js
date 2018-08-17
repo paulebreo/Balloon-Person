@@ -238,9 +238,21 @@ class Game {
       puzzleArea.appendChild(newDiv);
     })
   }
+
   setupGuessEvents() {
     let self = this
     function updateGame(e) {
+
+      // check game state
+
+      // add guess
+
+      // update guess area
+
+      // update puzzle area
+
+      // update person area
+
       console.log('keycode',e.target.dataset.letter)
       self.addGuess(e.target.dataset.letter.toLowerCase())
     } 
