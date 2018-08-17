@@ -60,7 +60,16 @@ const ASCIIART = [
 ];
 
 const PUZZLE_WORDS = [
-  'hello'
+  'fullstack',
+  'javascript',
+  'variable',
+  'function',
+  'prototype',
+  'instance',
+  'array',
+  'number',
+  'string',
+  'loop'  
 ]
 
 class RopeDude {
@@ -162,8 +171,10 @@ class Game {
     this.guessBoardLetters = []
     this.puzzleBoardLetters = []
   }
+
   start() {
     console.log('starting game')
+    Game.prototype.closeRestartScreen()
     this.createNewPerson()
     this.setupScreen()
     this.setupGuessEvents()
@@ -178,7 +189,9 @@ class Game {
     let randomWord = PUZZLE_WORDS[getRandomIntInclusive(0,PUZZLE_WORDS.length-1)]
     this.balloonPerson = new BalloonPerson(randomWord)
   }
+
   setupScreen() {
+    let self = this
     let splashScreen = document.getElementById("splashScreen");
     let startButton = document.getElementsByClassName("startBtn")[0];
     let restartScreen = document.getElementById("restartScreen");
@@ -190,13 +203,12 @@ class Game {
       console.log("pressed");
       splashScreen.style.display = "none";
     }
-    function closeRestartScreen() {
-      console.log("pressed");
-      restartScreen.style.display = "none";
-    }
+
+    // function closeRestartScreen() {
+    //   restartScreen.style.display = "none";
+    // }
 
     function closeModal() {
-      // console.log(modal)
       splashScreen.style.display = "none";
     }
 
@@ -212,7 +224,7 @@ class Game {
     }
 
     startButton.addEventListener("click", closeSplashScreen);
-    restartButton.addEventListener("click", closeRestartScreen);
+    restartButton.addEventListener("click", self.start);
     playerArea.addEventListener('animationend', showRestartScreen)
     // close windows when click outside modal
     // window.addEventListener('click', closeSplashScreen)
@@ -315,6 +327,12 @@ class Game {
     });
   }
 }
+
+Game.prototype.closeRestartScreen = function(){
+  let restartScreen = document.getElementById("restartScreen");
+  restartScreen.style.display = "none";
+}
+
 
 const animateShark = true
 
