@@ -252,6 +252,18 @@ class Game {
       console.log('you lost')
     } else {}
   }
+  updatePuzzleBoard(state, guess) {
+    let self = this
+    if(state === 'lost') return
+    
+    this.puzzleLetters = document.querySelectorAll('.puzzleLetter')
+
+    Array.prototype.forEach.call(this.puzzleLetters, function(el, i){
+      console.log('puzzle text',el.innerText)
+      if(el.innerText.toLowerCase() === guess.toLowerCase())
+        el.classList.remove('hidden')
+    });
+  }
   setupGuessEvents() {
     let self = this
     function updateGame(e) {
@@ -260,6 +272,7 @@ class Game {
       let state = self.addGuess(e.target.dataset.letter.toLowerCase())
 
       // update puzzle area
+      self.updatePuzzleBoard(state, e.target.dataset.letter)
 
       // check game state
       self.checkGameState(state)
