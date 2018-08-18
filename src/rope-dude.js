@@ -197,7 +197,7 @@ class Game {
     let restartScreen = document.getElementById("restartScreen");
     let winScreen = document.getElementById("winScreen");
     let restartButton = document.getElementsByClassName("restartBtn")[0];
-    let playAgainButton = document.getElementsByClassName("restartBtn")[0];
+    let playAgainButton = document.getElementsByClassName("playAgain")[0];
     let playerArea = document.getElementsByClassName("playerArea")[0];
     restartScreen.style.display = "none";
     winScreen.style.display = "none";
@@ -227,8 +227,8 @@ class Game {
     }
 
     startButton.addEventListener("click", closeSplashScreen);
-    restartButton.addEventListener("click", self.start);
-    playAgainButton.addEventListener("click", self.start);
+    restartButton.addEventListener("click", this.start);
+    playAgainButton.addEventListener("click", this.start);
     playerArea.addEventListener('animationend', showRestartScreen)
     // close windows when click outside modal
     // window.addEventListener('click', closeSplashScreen)
