@@ -181,40 +181,46 @@ class Game {
     });
 
   }
-  drawPuzzleBoard(secretWord) {
-    let puzzleArea = document.getElementsByClassName("puzzleArea")[0];
 
-    this.balloonPerson.secretWord.forEach((letter)=>{
-      let L = letter.toUpperCase()
-      let newDiv = document.createElement("div"); 
-      newDiv.className = 'puzzleLetter'
-      newDiv.classList.add('hidden')
-      newDiv.dataset.letter = L
-      newDiv.innerText = L
-      puzzleArea.appendChild(newDiv);
-    })
-  }
-  checkWin(state) {
-    let winScreen = document.getElementById("winScreen");
-    console.log('state:', state)
-    if(state === 'won') {
-      winScreen.style.display = "flex"
-    } 
-  }
-  updatePuzzleBoard(state, guess) {
-    let self = this
-    if(state === 'lost') return
-    
-    this.puzzleLetters = document.querySelectorAll('.puzzleLetter')
 
-    Array.prototype.forEach.call(this.puzzleLetters, function(el, i){
-      // console.log('puzzle text',el.innerText)
-      if(el.innerText.toLowerCase() === guess.toLowerCase())
-        el.classList.remove('hidden')
-    });
-  }
   
   
+}
+
+Game.prototype.drawPuzzleBoard = function(secretWord) {
+  let puzzleArea = document.getElementsByClassName("puzzleArea")[0];
+
+  this.balloonPerson.secretWord.forEach((letter)=>{
+    let L = letter.toUpperCase()
+    let newDiv = document.createElement("div"); 
+    newDiv.className = 'puzzleLetter'
+    newDiv.classList.add('hidden')
+    newDiv.dataset.letter = L
+    newDiv.innerText = L
+    puzzleArea.appendChild(newDiv);
+  })
+}
+
+
+Game.prototype.checkWin = function(state) {
+  let winScreen = document.getElementById("winScreen");
+  console.log('state:', state)
+  if(state === 'won') {
+    winScreen.style.display = "flex"
+  } 
+}
+
+Game.prototype.updatePuzzleBoard = function(state, guess) {
+  let self = this
+  if(state === 'lost') return
+  
+  this.puzzleLetters = document.querySelectorAll('.puzzleLetter')
+
+  Array.prototype.forEach.call(this.puzzleLetters, function(el, i){
+    // console.log('puzzle text',el.innerText)
+    if(el.innerText.toLowerCase() === guess.toLowerCase())
+      el.classList.remove('hidden')
+  });
 }
 
 Game.prototype.updatePersonArea = function(state) {
