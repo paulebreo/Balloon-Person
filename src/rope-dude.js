@@ -213,27 +213,27 @@ class Game {
         el.classList.remove('hidden')
     });
   }
-  updatePersonArea(state) {
-    let balloonElements = document.getElementById('balloons').children
-    let playerArea = document.getElementsByClassName('playerArea')[0]
-    if(state === 'lost') {
-      // remove last balloon
-      let el = balloonElements[balloonElements.length-1]
-      el.parentNode.removeChild(el)
-      // animate falling
-      playerArea.classList.add('falling')
+  
+  
+}
 
-    }
-    console.log('remaining guesses', this.balloonPerson.remainingGuesses)
-    
-    while(balloonElements.length > this.balloonPerson.remainingGuesses) {
-      let el = balloonElements[balloonElements.length-1]
-      el.parentNode.removeChild(el)
-    }
-
+Game.prototype.updatePersonArea = function(state) {
+  let balloonElements = document.getElementById('balloons').children
+  let playerArea = document.getElementsByClassName('playerArea')[0]
+  if(state === 'lost') {
+    // remove last balloon
+    let el = balloonElements[balloonElements.length-1]
+    el.parentNode.removeChild(el)
+    // animate falling
+    playerArea.classList.add('falling')
 
   }
+  console.log('remaining guesses', this.balloonPerson.remainingGuesses)
   
+  while(balloonElements.length > this.balloonPerson.remainingGuesses) {
+    let el = balloonElements[balloonElements.length-1]
+    el.parentNode.removeChild(el)
+  }
 }
 
 Game.prototype.setupGuessEvents = function() {
