@@ -379,6 +379,19 @@ waterArea {
   
   .winContent {
       // Basic Button Style
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      img {
+        height: 40vh;
+        margin: 10px auto;
+      }
+      .winMessage {
+        font-size: 3rem;
+        margin: 0px auto;
+        color: #fff;
+      }
       %btn {
           box-sizing: border-box;
           // appearance: none;
@@ -392,7 +405,7 @@ waterArea {
           font-size: 1rem;
           font-weight: 400;
           line-height: 1;
-          margin: 20px;
+          margin: 5px auto;
           padding: 1.2em 2.8em;
           text-decoration: none;
           text-align: center;

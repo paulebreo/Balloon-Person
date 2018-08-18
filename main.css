@@ -277,33 +277,45 @@ waterArea {
   background-color: #483D8B;
   align-items: center;
   justify-content: center; }
-  .winScreen .winContent .splashScreen .splashContent .startBtn, .splashScreen .splashContent .winScreen .winContent .startBtn, .winScreen .winContent .restartScreen .restartContent .restartBtn, .restartScreen .restartContent .winScreen .winContent .restartBtn, .winScreen .winContent .playAgain {
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius: 0.6em;
-    color: white;
-    cursor: pointer;
+  .winScreen .winContent {
     display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; }
-    .winScreen .winContent .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .winScreen .winContent .startBtn:hover, .winScreen .winContent .restartScreen .restartContent .restartBtn:hover, .restartScreen .restartContent .winScreen .winContent .restartBtn:hover, .winScreen .winContent .playAgain:hover, .winScreen .winContent .splashScreen .splashContent .startBtn:focus, .splashScreen .splashContent .winScreen .winContent .startBtn:focus, .winScreen .winContent .restartScreen .restartContent .restartBtn:focus, .restartScreen .restartContent .winScreen .winContent .restartBtn:focus, .winScreen .winContent .playAgain:focus {
-      color: #fff;
-      outline: 0; }
-  .winScreen .winContent .playAgain {
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
-    .winScreen .winContent .playAgain:hover {
-      box-shadow: 0 0 40px 40px white inset;
-      color: black; }
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
+    .winScreen .winContent img {
+      height: 40vh;
+      margin: 10px auto; }
+    .winScreen .winContent .winMessage {
+      font-size: 3rem;
+      margin: 0px auto;
+      color: #fff; }
+    .winScreen .winContent .splashScreen .splashContent .startBtn, .splashScreen .splashContent .winScreen .winContent .startBtn, .winScreen .winContent .restartScreen .restartContent .restartBtn, .restartScreen .restartContent .winScreen .winContent .restartBtn, .winScreen .winContent .playAgain {
+      box-sizing: border-box;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 0.6em;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-self: center;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1;
+      margin: 5px auto;
+      padding: 1.2em 2.8em;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; }
+      .winScreen .winContent .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .winScreen .winContent .startBtn:hover, .winScreen .winContent .restartScreen .restartContent .restartBtn:hover, .restartScreen .restartContent .winScreen .winContent .restartBtn:hover, .winScreen .winContent .playAgain:hover, .winScreen .winContent .splashScreen .splashContent .startBtn:focus, .splashScreen .splashContent .winScreen .winContent .startBtn:focus, .winScreen .winContent .restartScreen .restartContent .restartBtn:focus, .restartScreen .restartContent .winScreen .winContent .restartBtn:focus, .winScreen .winContent .playAgain:focus {
+        color: #fff;
+        outline: 0; }
+    .winScreen .winContent .playAgain {
+      transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
+      .winScreen .winContent .playAgain:hover {
+        box-shadow: 0 0 40px 40px white inset;
+        color: black; }
 
 @keyframes leftToRight {
   from {
