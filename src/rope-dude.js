@@ -171,74 +171,7 @@ class Game {
     this.puzzleBoardLetters = []
   }
 
-  start() {
-    console.log('starting game')
-    try {
-      Game.prototype.closeRestartScreen()
-      Game.prototype.createNewPerson()
-      this.setupScreen()
-      this.setupGuessEvents()
-      this.drawPuzzleBoard()
-    } catch(ex) {
-      debugger
-      let z = this
-      console.log(ex)
-    }
 
-  }
-  createNewPerson() {
-
-  }
-
-  setupScreen() {
-    let self = this
-    let splashScreen = document.getElementById("splashScreen");
-    let startButton = document.getElementsByClassName("startBtn")[0];
-    let restartScreen = document.getElementById("restartScreen");
-    let winScreen = document.getElementById("winScreen");
-    let restartButton = document.getElementsByClassName("restartBtn")[0];
-    let playAgainButton = document.getElementsByClassName("playAgain")[0];
-    let playerArea = document.getElementsByClassName("playerArea")[0];
-    restartScreen.style.display = "none";
-    winScreen.style.display = "none";
-
-    function closeSplashScreen() {
-      console.log("pressed");
-      splashScreen.style.display = "none";
-    }
-
-    // function closeRestartScreen() {
-    //   restartScreen.style.display = "none";
-    // }
-
-    function closeModal() {
-      splashScreen.style.display = "none";
-    }
-
-    function clickOutside(e) {
-      if (e.target === screen) {
-        screen.style.display = "none";
-      }
-    }
-    
-    function showRestartScreen(e) {
-      console.log('animation ended')
-      restartScreen.style.display = "flex"
-    }
-
-    startButton.addEventListener("click", closeSplashScreen);
-    restartButton.addEventListener("click", this.start);
-    playAgainButton.addEventListener("click", this.start);
-    playerArea.addEventListener('animationend', showRestartScreen)
-    // close windows when click outside modal
-    // window.addEventListener('click', closeSplashScreen)
-  }
-  addGuess(guess) {
-    this.balloonPerson.submitGuess(guess)
-    console.log('letters guess',this.balloonPerson.lettersGuessed)
-    this.drawGuessBoard()
-    return this.balloonPerson.gameState
-  }
   drawGuessBoard() {
     let self = this
     Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
@@ -300,31 +233,33 @@ class Game {
 
 
   }
-  setupGuessEvents() {
-    let self = this
-    function updateGame(e) {
+  
+}
 
-      // add guess & update guess area
-      let state = self.addGuess(e.target.dataset.letter.toLowerCase())
+Game.prototype.setupGuessEvents = function() {
+  let self = this
+  function updateGame(e) {
 
-      // update puzzle area
-      self.updatePuzzleBoard(state, e.target.dataset.letter)
+    // add guess & update guess area
+    let state = self.addGuess(e.target.dataset.letter.toLowerCase())
 
-      // update person area
-      self.updatePersonArea(state)
+    // update puzzle area
+    self.updatePuzzleBoard(state, e.target.dataset.letter)
 
-      // check win state
-      self.checkWin(state)
-      
+    // update person area
+    self.updatePersonArea(state)
 
-      console.log('keycode',e.target.dataset.letter)
-      
-    } 
-    this.guessBoardLetters = document.querySelectorAll('.letter')
-    Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
-      el.addEventListener('click', updateGame)
-    });
-  }
+    // check win state
+    self.checkWin(state)
+    
+
+    console.log('keycode',e.target.dataset.letter)
+    
+  } 
+  this.guessBoardLetters = document.querySelectorAll('.letter')
+  Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
+    el.addEventListener('click', updateGame)
+  });
 }
 
 Game.prototype.closeRestartScreen = function(){
@@ -340,6 +275,66 @@ Game.prototype.createNewPerson = function() {
   }
   let randomWord = PUZZLE_WORDS[getRandomIntInclusive(0,PUZZLE_WORDS.length-1)]
   Game.prototype.balloonPerson = new BalloonPerson(randomWord)
+}
+
+Game.prototype.start = function() {
+  console.log('starting game')
+  try {
+    Game.prototype.closeRestartScreen()
+    Game.prototype.createNewPerson()
+    Game.prototype.setupScreen()
+    Game.prototype.setupGuessEvents()
+    Game.prototype.drawPuzzleBoard()
+  } catch(ex) {
+    debugger
+    let z = this
+    console.log(ex)
+  }
+
+}
+
+Game.prototype.setupScreen = function() {
+  let self = this
+  let splashScreen = document.getElementById("splashScreen");
+  let startButton = document.getElementsByClassName("startBtn")[0];
+  let restartScreen = document.getElementById("restartScreen");
+  let winScreen = document.getElementById("winScreen");
+  let restartButton = document.getElementsByClassName("restartBtn")[0];
+  let playAgainButton = document.getElementsByClassName("playAgain")[0];
+  let playerArea = document.getElementsByClassName("playerArea")[0];
+  restartScreen.style.display = "none";
+  winScreen.style.display = "none";
+
+  function closeSplashScreen() {
+    console.log("pressed");
+    splashScreen.style.display = "none";
+  }
+
+  // function closeRestartScreen() {
+  //   restartScreen.style.display = "none";
+  // }
+
+  function closeModal() {
+    splashScreen.style.display = "none";
+  }
+
+  function clickOutside(e) {
+    if (e.target === screen) {
+      screen.style.display = "none";
+    }
+  }
+  
+  function showRestartScreen(e) {
+    console.log('animation ended')
+    restartScreen.style.display = "flex"
+  }
+
+  startButton.addEventListener("click", closeSplashScreen);
+  restartButton.addEventListener("click", Game.prototype.start);
+  playAgainButton.addEventListener("click", Game.prototype.start);
+  playerArea.addEventListener('animationend', showRestartScreen)
+  // close windows when click outside modal
+  // window.addEventListener('click', closeSplashScreen)
 }
 
 const animateShark = true
@@ -363,6 +358,11 @@ function alternateMove(e) {
     e.target.classList.add('sharkMove1')   
   }
 }
+Game.prototype.addGuess = function(guess) {
+  this.balloonPerson.submitGuess(guess)
+  console.log('letters guess',this.balloonPerson.lettersGuessed)
+  this.drawGuessBoard()
+  return this.balloonPerson.gameState
+}
 
-let game = new Game()
-game.start()
+Game.prototype.start()
