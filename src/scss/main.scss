@@ -406,7 +406,7 @@ waterArea {
           outline: 0;
           }
       }
-      .restartBtn {
+      .playAgain {
           @extend %btn;
           transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
           &:hover {

@@ -195,7 +195,9 @@ class Game {
     let splashScreen = document.getElementById("splashScreen");
     let startButton = document.getElementsByClassName("startBtn")[0];
     let restartScreen = document.getElementById("restartScreen");
+    let winScreen = document.getElementById("winScreen");
     let restartButton = document.getElementsByClassName("restartBtn")[0];
+    let playAgainButton = document.getElementsByClassName("restartBtn")[0];
     let playerArea = document.getElementsByClassName("playerArea")[0];
     restartScreen.style.display = "none";
     winScreen.style.display = "none";
@@ -226,6 +228,7 @@ class Game {
 
     startButton.addEventListener("click", closeSplashScreen);
     restartButton.addEventListener("click", self.start);
+    playAgainButton.addEventListener("click", self.start);
     playerArea.addEventListener('animationend', showRestartScreen)
     // close windows when click outside modal
     // window.addEventListener('click', closeSplashScreen)
@@ -259,11 +262,10 @@ class Game {
     })
   }
   checkWin(state) {
+    let winScreen = document.getElementById("winScreen");
     console.log('state:', state)
     if(state === 'won') {
-      console.log('you won')
-      // show win screen
-
+      winScreen.style.display = "flex"
     } 
   }
   updatePuzzleBoard(state, guess) {
