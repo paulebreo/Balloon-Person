@@ -167,7 +167,6 @@ class BalloonPerson extends RopeDude {
 
 class Game {
   constructor() {
-    this.balloonPerson
     this.guessBoardLetters = []
     this.puzzleBoardLetters = []
   }
@@ -176,7 +175,7 @@ class Game {
     console.log('starting game')
     try {
       Game.prototype.closeRestartScreen()
-      this.createNewPerson()
+      Game.prototype.createNewPerson()
       this.setupScreen()
       this.setupGuessEvents()
       this.drawPuzzleBoard()
@@ -188,13 +187,7 @@ class Game {
 
   }
   createNewPerson() {
-    function getRandomIntInclusive(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
-    }
-    let randomWord = PUZZLE_WORDS[getRandomIntInclusive(0,PUZZLE_WORDS.length-1)]
-    this.balloonPerson = new BalloonPerson(randomWord)
+
   }
 
   setupScreen() {
@@ -339,6 +332,15 @@ Game.prototype.closeRestartScreen = function(){
   restartScreen.style.display = "none";
 }
 
+Game.prototype.createNewPerson = function() {
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
+  let randomWord = PUZZLE_WORDS[getRandomIntInclusive(0,PUZZLE_WORDS.length-1)]
+  Game.prototype.balloonPerson = new BalloonPerson(randomWord)
+}
 
 const animateShark = true
 
