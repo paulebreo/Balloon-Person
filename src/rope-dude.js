@@ -174,11 +174,18 @@ class Game {
 
   start() {
     console.log('starting game')
-    Game.prototype.closeRestartScreen()
-    this.createNewPerson()
-    this.setupScreen()
-    this.setupGuessEvents()
-    this.drawPuzzleBoard()
+    try {
+      Game.prototype.closeRestartScreen()
+      this.createNewPerson()
+      this.setupScreen()
+      this.setupGuessEvents()
+      this.drawPuzzleBoard()
+    } catch(ex) {
+      debugger
+      let z = this
+      console.log(ex)
+    }
+
   }
   createNewPerson() {
     function getRandomIntInclusive(min, max) {
