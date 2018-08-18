@@ -198,6 +198,7 @@ class Game {
     let restartButton = document.getElementsByClassName("restartBtn")[0];
     let playerArea = document.getElementsByClassName("playerArea")[0];
     restartScreen.style.display = "none";
+    winScreen.style.display = "none";
 
     function closeSplashScreen() {
       console.log("pressed");
@@ -257,18 +258,13 @@ class Game {
       puzzleArea.appendChild(newDiv);
     })
   }
-  checkGameState(state) {
+  checkWin(state) {
     console.log('state:', state)
     if(state === 'won') {
-      
-      // animate falling balloon
       console.log('you won')
+      // show win screen
 
-      // show restart screen
-
-    } else if(state === 'lost') {
-      console.log('you lost')
-    } else {}
+    } 
   }
   updatePuzzleBoard(state, guess) {
     let self = this
@@ -312,11 +308,12 @@ class Game {
       // update puzzle area
       self.updatePuzzleBoard(state, e.target.dataset.letter)
 
-      // check game state
-      self.checkGameState(state)
-      
       // update person area
       self.updatePersonArea(state)
+
+      // check win state
+      self.checkWin(state)
+      
 
       console.log('keycode',e.target.dataset.letter)
       
