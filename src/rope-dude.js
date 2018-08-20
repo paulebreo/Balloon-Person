@@ -163,6 +163,9 @@ class BalloonPerson extends RopeDude {
   constructor(secretWord) {
     super(secretWord);
   }
+  reloadSecretWord(secretWordList) {
+    
+  }
 }
 
 class Game {

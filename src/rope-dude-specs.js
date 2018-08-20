@@ -298,89 +298,33 @@ describe('Balloon Person Class', () => {
     expect(typeof BalloonPerson.constructor).toBe('function');
   });
 
-  describe('showSplashScreen method', () => {
-    it('is a prototype method', () => {
+  describe('reloadSecretWord method', () => {
+    it('should be a prototype method', () => {
       const game = new BalloonPerson('xertz');
-      expect(game.hasOwnProperty('showSplashScreen')).toBe(false);
+      expect(game.hasOwnProperty('reloadSecretWord')).toBe(false);
     });
-    it('should call classList.add()', () => {
-      expect(false).toBe(true);
+    it('should reload a new secret word', () => {
+      // const secretWordList = ['fee','fie','foh','fum']
+      const secretWordList = ['fee']
+      const game = new BalloonPerson('xertz')
+      expect(game.secretWord).toEqual([
+        'x',
+        'e',
+        'r',
+        't',
+        'z'
+      ]);
+      game.reloadSecretWord(secretWordList)
+      expect(game.secretWord).toEqual([
+        'f',
+        'e',
+        'e',
+      ]);
     });
 
   });
 
-  describe('drawGuesses method', () => {
-    it('is a prototype method', () => {
-      const game = new BalloonPerson('xertz');
-      expect(game.hasOwnProperty('drawGuesses')).toBe(false);
-    });
-    it('should call classList.add()', () => {
-      expect(false).toBe(true);
-    });
-    it('should call el.querySelectorAll(selector);', () => {
-      expect(false).toBe(true);
-    });
-    it('should toggle class', () => {
-      // something like this
-      /*
-        if (el.classList) {
-          el.classList.toggle(className);
-        } else {
-          var classes = el.className.split(' ');
-          var existingIndex = classes.indexOf(className);
 
-          if (existingIndex >= 0)
-            classes.splice(existingIndex, 1);
-          else
-            classes.push(className);
-
-          el.className = classes.join(' ');
-        }
-      */
-      expect(false).toBe(true);
-    });
-
-  });
-
-  describe('drawPuzzle method', () => {
-    it('is a prototype method', () => {
-      const game = new BalloonPerson('xertz');
-      expect(game.hasOwnProperty('drawPuzzle')).toBe(false);
-    });
-    it('should call classList.add()', () => {
-      expect(false).toBe(true);
-    });
-    it('should call parent.appendChild(el);', () => {
-      expect(false).toBe(true);
-    });
-    it('should call el.parentNode.removeChild(el)', () => {
-      // http://youmightnotneedjquery.com/
-      expect(false).toBe(true);
-    });
-
-  });
-
-  describe('showRestartScreen method', () => {
-    it('is a prototype method', () => {
-      const game = new BalloonPerson('xertz');
-      expect(game.hasOwnProperty('showRestartScreen')).toBe(false);
-    });
-    it('should call classList.add()', () => {
-      expect(false).toBe(true);
-    });
-
-  });
-
-  describe('getGameStateMessage method', () => {
-    it('is a prototype method', () => {
-      const game = new BalloonPerson('xertz');
-      expect(game.hasOwnProperty('getGameStateMessage')).toBe(false);
-    });
-    it('should call classList.add()', () => {
-      expect(false).toBe(true);
-    });
-
-  });
 
 });
 
