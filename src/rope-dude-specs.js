@@ -381,8 +381,65 @@ describe('Balloon Person Class', () => {
       expect( game.gameState ).toBe('lost');
 
       game.reloadSecretWord(secretWordList)
-      console.log(game.secretWord)
       expect( game.gameState ).toBe('playing');
+    });
+
+    it('should empty lettersGuessed', () => {
+      // const secretWordList = ['fee','fie','foh','fum']
+      const secretWordList = ['fee','fie']
+      const game = new BalloonPerson('xertz')
+      expect(game.secretWord).toEqual([
+        'x',
+        'e',
+        'r',
+        't',
+        'z'
+      ]);
+      game.submitGuess('a');
+      game.computeGameState()
+      game.submitGuess('d');
+      game.computeGameState()
+      game.submitGuess('g');
+      game.computeGameState()
+      game.submitGuess('j');
+      game.computeGameState()
+      game.submitGuess('m');
+      game.computeGameState()
+      game.submitGuess('p');
+      game.computeGameState()
+      expect( game.lettersGuessed.length ).toBe(6);
+      
+      game.reloadSecretWord(secretWordList)
+      expect( game.lettersGuessed.length ).toBe(0);
+    });
+
+    it('should reset remainingGuesses', () => {
+      // const secretWordList = ['fee','fie','foh','fum']
+      const secretWordList = ['fee','fie']
+      const game = new BalloonPerson('xertz')
+      expect(game.secretWord).toEqual([
+        'x',
+        'e',
+        'r',
+        't',
+        'z'
+      ]);
+      game.submitGuess('a');
+      game.computeGameState()
+      game.submitGuess('d');
+      game.computeGameState()
+      game.submitGuess('g');
+      game.computeGameState()
+      game.submitGuess('j');
+      game.computeGameState()
+      game.submitGuess('m');
+      game.computeGameState()
+      game.submitGuess('p');
+      game.computeGameState()
+      expect( game.remainingGuesses ).toBe(0);
+      
+      game.reloadSecretWord(secretWordList)
+      expect( game.remainingGuesses ).toBe(6);
     });
 
   });
