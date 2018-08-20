@@ -163,8 +163,20 @@ class BalloonPerson extends RopeDude {
   constructor(secretWord) {
     super(secretWord);
   }
+  getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
   reloadSecretWord(secretWordList) {
-    
+    let randomIndex = this.getRandomIntInclusive(0, secretWordList.length-1)
+    // reset state
+    this.gameState = 'playing'
+    // reset guesses
+    this.lettersGuessed = []
+    this.remainingGuesses = 6
+    // reset secretWord
+    this.secretWord = secretWordList[randomIndex].split('')
   }
 }
 

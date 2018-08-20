@@ -321,7 +321,39 @@ describe('Balloon Person Class', () => {
         'e',
       ]);
     });
+    it('should not load a word that is not in the list', () => {
+      // const secretWordList = ['fee','fie','foh','fum']
+      const secretWordList = ['fee','fie']
+      const game = new BalloonPerson('xertz')
+      expect(game.secretWord).toEqual([
+        'x',
+        'e',
+        'r',
+        't',
+        'z'
+      ]);
 
+      game.reloadSecretWord(secretWordList)
+      
+      expect( secretWordList.includes('blue') ).toBe(false);
+    });
+
+    it('should load a word that is in the list', () => {
+      // const secretWordList = ['fee','fie','foh','fum']
+      const secretWordList = ['fee','fie']
+      const game = new BalloonPerson('xertz')
+      expect(game.secretWord).toEqual([
+        'x',
+        'e',
+        'r',
+        't',
+        'z'
+      ]);
+
+      game.reloadSecretWord(secretWordList)
+      console.log(game.secretWord)
+      expect( secretWordList.includes(game.secretWord.join('')) ).toEqual(true);
+    });
   });
 
 
