@@ -354,6 +354,37 @@ describe('Balloon Person Class', () => {
       console.log(game.secretWord)
       expect( secretWordList.includes(game.secretWord.join('')) ).toEqual(true);
     });
+
+    it('should reset playing state to playing', () => {
+      // const secretWordList = ['fee','fie','foh','fum']
+      const secretWordList = ['fee','fie']
+      const game = new BalloonPerson('xertz')
+      expect(game.secretWord).toEqual([
+        'x',
+        'e',
+        'r',
+        't',
+        'z'
+      ]);
+      game.submitGuess('a');
+      game.computeGameState()
+      game.submitGuess('d');
+      game.computeGameState()
+      game.submitGuess('g');
+      game.computeGameState()
+      game.submitGuess('j');
+      game.computeGameState()
+      game.submitGuess('m');
+      game.computeGameState()
+      game.submitGuess('p');
+      game.computeGameState()
+      expect( game.gameState ).toBe('lost');
+
+      game.reloadSecretWord(secretWordList)
+      console.log(game.secretWord)
+      expect( game.gameState ).toBe('playing');
+    });
+
   });
 
 
