@@ -184,22 +184,17 @@ class Game {
   constructor() {
     this.guessBoardLetters = []
     this.puzzleBoardLetters = []
-  }
+  }  
+}
 
+Game.prototype.drawGuessBoard = function() {
+  let self = this
+  Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
+    if(self.balloonPerson.lettersGuessed.includes(el.dataset.letter.toLowerCase())) {
+      el.classList.add('hideGuess')   
+    }
+  });
 
-  drawGuessBoard() {
-    let self = this
-    Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
-      if(self.balloonPerson.lettersGuessed.includes(el.dataset.letter.toLowerCase())) {
-        el.classList.add('hideGuess')   
-      }
-    });
-
-  }
-
-
-  
-  
 }
 
 Game.prototype.drawPuzzleBoard = function(secretWord) {
