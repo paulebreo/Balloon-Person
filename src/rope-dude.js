@@ -256,6 +256,9 @@ Game.prototype.updatePuzzleBoard = function(state, guess) {
 Game.prototype.updatePersonArea = function(state) {
   let balloonElements = document.getElementById('balloons').children
   let playerArea = document.getElementsByClassName('playerArea')[0]
+  try {
+    playerArea.classList.remove('falling')
+  } catch(err) {console.log(err)}
   if(state === 'lost') {
     // remove last balloon
     let el = balloonElements[balloonElements.length-1]
