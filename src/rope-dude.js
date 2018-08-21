@@ -304,6 +304,26 @@ Game.prototype.closeRestartScreen = function(){
   restartScreen.style.display = "none";
 }
 
+Game.prototype.addBalloons = function() {
+  let balloonParent = document.getElementsByClassName("balloons")[0]
+  let balloons = [
+    {data: 1, class: 'balloon-1'},
+    {data: 2, class: 'balloon-2'},
+    {data: 3, class: 'balloon-3'},
+    {data: 4, class: 'balloon-4'},
+    {data: 5, class: 'balloon-5'},
+    {data: 6, class: 'balloon-6'},
+  ]
+  balloons.forEach(
+    (item, idx) => {
+      let newDiv = document.createElement("div"); 
+      newDiv.className = item.class
+      newDiv.dataset.balloon = item.data
+      balloonParent.appendChild(newDiv)
+    }
+  )
+}
+
 Game.prototype.createNewPerson = function() {
   function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -324,6 +344,7 @@ Game.prototype.start = function() {
     Game.prototype.setupGuessEvents()
     Game.prototype.clearGuessBoard()    
     Game.prototype.drawPuzzleBoard()
+    Game.prototype.addBalloons()
   } catch(ex) {
     debugger
     let z = this
