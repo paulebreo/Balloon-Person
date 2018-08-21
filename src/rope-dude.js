@@ -60,12 +60,15 @@ const ASCIIART = [
 ];
 
 const PUZZLE_WORDS = [
+  'class',
+  'let',
+  'map',
+  'reduce',
+  'filter',
+  'instance',
   'fullstack',
-  'javascript',
-  'variable',
   'function',
   'prototype',
-  'instance',
   'array',
   'number',
   'string',
