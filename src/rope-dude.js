@@ -295,7 +295,7 @@ Game.prototype.setupGuessEvents = function() {
   } 
   this.guessBoardLetters = document.querySelectorAll('.letter')
   Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
-    el.addEventListener('click', updateGame)
+    el.addEventListener('click', updateGame, {once: true})
   });
 }
 
