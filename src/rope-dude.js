@@ -200,7 +200,18 @@ Game.prototype.drawGuessBoard = function() {
 
 }
 
+Game.prototype.clearPuzzleBoard = function() {
+  let puzzleLetters = document.getElementsByClassName("puzzleArea")[0].children;
+  while(puzzleLetters.length > 0) {
+    Array.prototype.forEach.call(puzzleLetters, function(el, i){
+      el.parentNode.removeChild(el)
+    });
+  }
+}
+
 Game.prototype.drawPuzzleBoard = function(secretWord) {
+  this.clearPuzzleBoard()
+  
   let puzzleArea = document.getElementsByClassName("puzzleArea")[0];
 
   this.balloonPerson.secretWord.forEach((letter)=>{
