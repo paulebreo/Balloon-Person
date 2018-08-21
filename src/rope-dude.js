@@ -259,7 +259,8 @@ Game.prototype.updatePersonArea = function(state) {
   if(state === 'lost') {
     // remove last balloon
     let el = balloonElements[balloonElements.length-1]
-    el.parentNode.removeChild(el)
+    if(el) 
+      el.parentNode.removeChild(el)
     // animate falling
     playerArea.classList.add('falling')
 
@@ -318,6 +319,7 @@ Game.prototype.start = function() {
   try {
     Game.prototype.closeRestartScreen()
     Game.prototype.createNewPerson()
+    Game.prototype.resetGameState()
     Game.prototype.setupScreen()
     Game.prototype.setupGuessEvents()
     Game.prototype.clearGuessBoard()    
@@ -328,6 +330,10 @@ Game.prototype.start = function() {
     console.log(ex)
   }
 
+}
+
+Game.prototype.resetGameState = function() {
+  Game.prototype.balloonPerson.reloadSecretWord(PUZZLE_WORDS)
 }
 
 Game.prototype.setupScreen = function() {
