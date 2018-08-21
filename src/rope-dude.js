@@ -200,6 +200,12 @@ Game.prototype.drawGuessBoard = function() {
 
 }
 
+Game.prototype.clearGuessBoard = function() {
+  Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
+      el.classList.remove('hideGuess')   
+  });
+}
+
 Game.prototype.clearPuzzleBoard = function() {
   let puzzleLetters = document.getElementsByClassName("puzzleArea")[0].children;
   while(puzzleLetters.length > 0) {
@@ -314,6 +320,7 @@ Game.prototype.start = function() {
     Game.prototype.createNewPerson()
     Game.prototype.setupScreen()
     Game.prototype.setupGuessEvents()
+    Game.prototype.clearGuessBoard()    
     Game.prototype.drawPuzzleBoard()
   } catch(ex) {
     debugger
