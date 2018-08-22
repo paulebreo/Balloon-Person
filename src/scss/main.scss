@@ -152,26 +152,28 @@ stickmanAreaContainer {
       }
       .balloon {
         &-1 {
-          left: 0px;
-          left: 90px;
+          top: 60px;
+          left: 130px;
           @extend %balloonStyle;
           background-color: purple;
         }
         &-2 {
           @extend %balloonStyle;
-          left: 10px;
-          background-color: yellow;
+          top: 60px;
+          left: 70px;
+          background-color: orange;
         }
         &-3 {
           @extend %balloonStyle;
-          left: 40px;
-          background-color: black;
+          top: 40px;
+          left: 100px;
+          background-color: lime;
         }
         &-4 {
           @extend %balloonStyle;
           top: 20px;
           left: 70px;
-          background-color: pink;
+          background-color:blue;
         }
          &-5 {
           @extend %balloonStyle;
@@ -182,7 +184,7 @@ stickmanAreaContainer {
           @extend %balloonStyle;
           top: 20px;
           left: 130px;
-          background-color: violet;
+          background-color:red;
         }
       }
     }

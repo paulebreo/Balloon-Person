@@ -121,26 +121,28 @@ stickmanAreaContainer {
         border: 1px solid black;
         border-radius: 50%; }
       stickmanAreaContainer .playerArea #balloons .balloon-1 {
-        left: 0px;
-        left: 90px;
+        top: 60px;
+        left: 130px;
         background-color: purple; }
       stickmanAreaContainer .playerArea #balloons .balloon-2 {
-        left: 10px;
-        background-color: yellow; }
+        top: 60px;
+        left: 70px;
+        background-color: orange; }
       stickmanAreaContainer .playerArea #balloons .balloon-3 {
-        left: 40px;
-        background-color: black; }
+        top: 40px;
+        left: 100px;
+        background-color: lime; }
       stickmanAreaContainer .playerArea #balloons .balloon-4 {
         top: 20px;
         left: 70px;
-        background-color: pink; }
+        background-color: blue; }
       stickmanAreaContainer .playerArea #balloons .balloon-5 {
         left: 100px;
         background-color: green; }
       stickmanAreaContainer .playerArea #balloons .balloon-6 {
         top: 20px;
         left: 130px;
-        background-color: violet; }
+        background-color: red; }
   stickmanAreaContainer .falling {
     animation-name: falling;
     animation-duration: 2s; }
