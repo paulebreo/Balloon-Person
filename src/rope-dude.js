@@ -394,6 +394,8 @@ Game.prototype.setupScreen = function() {
   function showRestartScreen(e) {
     console.log('animation ended')
     restartScreen.style.display = "flex"
+    let solutionMessage = document.getElementById('solutionMessage')
+    solutionMessage.innerHTML = `The correct answer was: <span class="solution"> ${Game.prototype.balloonPerson.secretWord.join('')}</span>`
   }
 
   startButton.addEventListener("click", closeSplashScreen);

@@ -317,6 +317,8 @@ waterArea {
     .restartScreen .restartContent .sharkFace img {
       height: 40vh;
       margin: 10px auto; }
+    .restartScreen .restartContent .solution {
+      color: yellow; }
 
 .winScreen {
   display: none;
