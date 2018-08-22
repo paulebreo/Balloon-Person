@@ -34,9 +34,12 @@ guessAreaContainer {
       cursor: pointer;
       padding: 3px 3px;
       font-size: 1.5rem;
-      background: grey; }
+      background: grey;
+      border-radius: 5px;
+      color: #fff; }
     guessAreaContainer .guessArea .hideGuess {
-      background-color: red;
+      background-color: rgba(0, 0, 0, 0);
+      color: darkgray;
       cursor: not-allowed; }
 
 stickmanAreaContainer {
