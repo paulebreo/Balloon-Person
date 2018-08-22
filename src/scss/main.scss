@@ -265,6 +265,19 @@ waterArea {
     
     .splashContent {
         // Basic Button Style
+        display: flex;
+        align-items: center;
+        justify-contenty: center;
+        flex-direction: column;
+        img {
+          height: 50vh;
+          margin: 0px auto;
+        }
+        .startMessage {
+          font-size: 3rem;
+          margin: 0px auto;
+          color: #fff;
+        }
         %btn {
             box-sizing: border-box;
             // appearance: none;
