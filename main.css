@@ -189,10 +189,11 @@ puzzleAreaContainer {
       min-width: 4rem;
       height: 4rem;
       margin: 0 0.5rem;
-      background-color: gray;
+      background-color: rgba(0, 0, 0, 0);
       border-bottom: 3px solid black; }
     puzzleAreaContainer .puzzleArea .hidden {
-      background-color: red; }
+      background-color: rgba(0, 0, 0, 0);
+      color: rgba(0, 0, 0, 0); }
 
 waterArea {
   grid-area: water;
