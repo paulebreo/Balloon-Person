@@ -7,6 +7,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     // line-height: 1.6rem;
+    background-color: skyblue;
 }
 
 .container {
@@ -26,7 +27,7 @@ body {
 guessAreaContainer {
   grid-area: guess;
 
-	background-color: coral;
+	// background-color: coral;
   display: flex;
   margin-bottom: 1.25rem;
 	.guessArea {
@@ -34,7 +35,7 @@ guessAreaContainer {
     padding: 0.75rem;
      width: 100%;
     height: 100%;
-     background-color: yellow;
+    //  background-color: yellow;
     display: grid;
     grid-gap: 3px;
     grid-template-columns: repeat(3, 1fr);
@@ -56,7 +57,7 @@ guessAreaContainer {
 }
 stickmanAreaContainer {
     grid-area: stickman;
-    background-color: pink;
+    // background-color: pink;
     position: relative;
   .playerArea {
     margin-top: 15vh;
@@ -65,14 +66,14 @@ stickmanAreaContainer {
     width: 150px;
     height: 250px;
     position: absolute;
-    background-color: grey;
+    // background-color: grey;
     // positive: relative;
     .body {
       width: 60%;
       // margin-top: 5rem;
       transform: translate(30%,0);
       height: 70%;
-      background-color: red;
+      // background-color: red;
       position: relative;
       .head {
         position: absolute;
@@ -170,7 +171,7 @@ stickmanAreaContainer {
     #balloons {
       width: 100%;
       height: 60%;
-      background-color: yellow;
+      // background-color: yellow;
       position: relative;
       %balloonStyle {
         position: absolute;
@@ -228,12 +229,12 @@ stickmanAreaContainer {
 
 puzzleAreaContainer {
   grid-area: puzzle;
-	background-color: blue;
+	// background-color: blue;
   display: flex;
 	.puzzleArea {
     width: 100vw;
     margin: 2px auto;
-    background-color: yellow;
+    // background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
