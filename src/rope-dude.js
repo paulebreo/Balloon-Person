@@ -298,7 +298,7 @@ Game.prototype.setupGuessEvents = function() {
   } 
   this.guessBoardLetters = document.querySelectorAll('.letter')
   Array.prototype.forEach.call(this.guessBoardLetters, function(el, i){
-    el.addEventListener('click', updateGame, {once: true})
+    el.addEventListener('click', updateGame)
   });
 }
 
@@ -344,7 +344,7 @@ Game.prototype.start = function() {
     Game.prototype.createNewPerson()
     Game.prototype.resetGameState()
     Game.prototype.setupScreen()
-    Game.prototype.setupGuessEvents()
+    // Game.prototype.setupGuessEvents()
     Game.prototype.clearGuessBoard()    
     Game.prototype.drawPuzzleBoard()
     Game.prototype.addBalloons()
@@ -432,4 +432,5 @@ Game.prototype.addGuess = function(guess) {
   return this.balloonPerson.gameState
 }
 
+Game.prototype.setupGuessEvents()
 Game.prototype.start()
