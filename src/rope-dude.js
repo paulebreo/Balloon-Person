@@ -264,7 +264,12 @@ Game.prototype.updatePersonArea = function(state) {
     let el = balloonElements[balloonElements.length-1]
     if(el) 
       el.parentNode.removeChild(el)
-    // animate falling
+    
+    // stop floating
+    let playerArea = document.getElementsByClassName("playerArea")[0];
+    playerArea.classList.remove('floating')
+    
+      // animate falling
     playerArea.classList.add('falling')
 
   }
@@ -369,6 +374,7 @@ Game.prototype.setupScreen = function() {
   let restartButton = document.getElementsByClassName("restartBtn")[0];
   let playAgainButton = document.getElementsByClassName("playAgain")[0];
   let playerArea = document.getElementsByClassName("playerArea")[0];
+  playerArea.classList.add('floating')
   restartScreen.style.display = "none";
   winScreen.style.display = "none";
 
