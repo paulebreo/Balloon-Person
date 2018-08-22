@@ -43,7 +43,7 @@ stickmanAreaContainer {
   background-color: pink;
   position: relative; }
   stickmanAreaContainer .playerArea {
-    margin-top: 20px;
+    margin-top: 15vh;
     left: 50%;
     transform: translate(-50%, 0);
     width: 150px;
@@ -111,7 +111,7 @@ stickmanAreaContainer {
         transform: rotate(70deg); }
     stickmanAreaContainer .playerArea #balloons {
       width: 100%;
-      height: 30%;
+      height: 60%;
       background-color: yellow;
       position: relative; }
       stickmanAreaContainer .playerArea #balloons .balloon-1, stickmanAreaContainer .playerArea #balloons .balloon-2, stickmanAreaContainer .playerArea #balloons .balloon-3, stickmanAreaContainer .playerArea #balloons .balloon-4, stickmanAreaContainer .playerArea #balloons .balloon-5, stickmanAreaContainer .playerArea #balloons .balloon-6 {
@@ -121,7 +121,8 @@ stickmanAreaContainer {
         border: 1px solid black;
         border-radius: 50%; }
       stickmanAreaContainer .playerArea #balloons .balloon-1 {
-        left: -30px;
+        left: 0px;
+        left: 90px;
         background-color: purple; }
       stickmanAreaContainer .playerArea #balloons .balloon-2 {
         left: 10px;
@@ -130,12 +131,14 @@ stickmanAreaContainer {
         left: 40px;
         background-color: black; }
       stickmanAreaContainer .playerArea #balloons .balloon-4 {
+        top: 20px;
         left: 70px;
         background-color: pink; }
       stickmanAreaContainer .playerArea #balloons .balloon-5 {
         left: 100px;
         background-color: green; }
       stickmanAreaContainer .playerArea #balloons .balloon-6 {
+        top: 20px;
         left: 130px;
         background-color: violet; }
   stickmanAreaContainer .falling {
