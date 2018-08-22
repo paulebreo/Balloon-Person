@@ -29,9 +29,11 @@ guessAreaContainer {
     grid-gap: 3px;
     grid-template-columns: repeat(3, 1fr); }
     guessAreaContainer .guessArea .letter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
       padding: 3px 3px;
-      text-align: center;
       font-size: 1.5rem;
       background: grey; }
     guessAreaContainer .guessArea .hideGuess {
