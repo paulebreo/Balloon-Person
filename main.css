@@ -237,33 +237,44 @@ waterArea {
   display: flex;
   align-items: center;
   justify-content: center; }
-  .restartScreen .restartContent .splashScreen .splashContent .startBtn, .splashScreen .splashContent .restartScreen .restartContent .startBtn, .restartScreen .restartContent .restartBtn, .restartScreen .restartContent .winScreen .winContent .playAgain, .winScreen .winContent .restartScreen .restartContent .playAgain {
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius: 0.6em;
-    color: white;
-    cursor: pointer;
+  .restartScreen .restartContent {
     display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 20px;
-    padding: 1.2em 2.8em;
-    text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; }
-    .restartScreen .restartContent .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .restartScreen .restartContent .startBtn:hover, .restartScreen .restartContent .restartBtn:hover, .restartScreen .restartContent .winScreen .winContent .playAgain:hover, .winScreen .winContent .restartScreen .restartContent .playAgain:hover, .restartScreen .restartContent .splashScreen .splashContent .startBtn:focus, .splashScreen .splashContent .restartScreen .restartContent .startBtn:focus, .restartScreen .restartContent .restartBtn:focus, .restartScreen .restartContent .winScreen .winContent .playAgain:focus, .winScreen .winContent .restartScreen .restartContent .playAgain:focus {
-      color: #fff;
-      outline: 0; }
-  .restartScreen .restartContent .restartBtn {
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
-    .restartScreen .restartContent .restartBtn:hover {
-      box-shadow: 0 0 40px 40px white inset;
-      color: black; }
+    align-items: center;
+    flex-direction: column; }
+    .restartScreen .restartContent .splashScreen .splashContent .startBtn, .splashScreen .splashContent .restartScreen .restartContent .startBtn, .restartScreen .restartContent .restartBtn, .restartScreen .restartContent .winScreen .winContent .playAgain, .winScreen .winContent .restartScreen .restartContent .playAgain {
+      box-sizing: border-box;
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 0.6em;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-self: center;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1;
+      margin: 20px;
+      padding: 1.2em 2.8em;
+      text-decoration: none;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; }
+      .restartScreen .restartContent .splashScreen .splashContent .startBtn:hover, .splashScreen .splashContent .restartScreen .restartContent .startBtn:hover, .restartScreen .restartContent .restartBtn:hover, .restartScreen .restartContent .winScreen .winContent .playAgain:hover, .winScreen .winContent .restartScreen .restartContent .playAgain:hover, .restartScreen .restartContent .splashScreen .splashContent .startBtn:focus, .splashScreen .splashContent .restartScreen .restartContent .startBtn:focus, .restartScreen .restartContent .restartBtn:focus, .restartScreen .restartContent .winScreen .winContent .playAgain:focus, .winScreen .winContent .restartScreen .restartContent .playAgain:focus {
+        color: #fff;
+        outline: 0; }
+    .restartScreen .restartContent .restartBtn {
+      transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out; }
+      .restartScreen .restartContent .restartBtn:hover {
+        box-shadow: 0 0 40px 40px white inset;
+        color: black; }
+    .restartScreen .restartContent .restartMessage {
+      font-size: 3rem;
+      margin: 0px auto;
+      color: #fff; }
+    .restartScreen .restartContent .sharkFace img {
+      height: 40vh;
+      margin: 10px auto; }
 
 .winScreen {
   display: none;

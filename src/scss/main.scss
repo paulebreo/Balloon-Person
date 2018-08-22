@@ -322,6 +322,9 @@ waterArea {
     
     .restartContent {
         // Basic Button Style
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         %btn {
             box-sizing: border-box;
             // appearance: none;
@@ -356,7 +359,17 @@ waterArea {
               box-shadow: 0 0 40px 40px white inset;
               color: black;
             } 
-          }
+        }
+        .restartMessage {
+          font-size: 3rem;
+          margin: 0px auto;
+          color: #fff;
+        }
+        .sharkFace img {
+          height: 40vh;
+          margin: 10px auto;
+        }
+
 
     }
 
