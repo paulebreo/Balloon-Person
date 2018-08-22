@@ -136,6 +136,35 @@ stickmanAreaContainer {
         transform: rotate(70deg);
        
       }
+      .string1 {
+        left: 90px;
+        top: -60px;
+        position: absolute;
+        width: 1px;
+        height: 115px;
+        background-color: #000;
+        transform: rotate(13deg);
+      }
+      .string2 {
+        left: 92px;
+        top: -49px;
+        position: absolute;
+        width: 1px;
+        height: 120px;
+        background-color: #000;
+        transform: rotate(20deg);
+        z-index: -1;
+      }
+      .string3 {
+        left: 83px;
+        top: -45px;
+        position: absolute;
+        width: 1px;
+        height: 110px;
+        background-color: #000;
+        transform: rotate(-3deg);
+        z-index: -1;
+      }
       
     }
     #balloons {
